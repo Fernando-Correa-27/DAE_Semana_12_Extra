@@ -7,6 +7,8 @@ export default function useExams() {
   const [error, setError] = useState(null);
   const [actionError, setActionError] = useState(null);
   const [attempt, setAttempt] = useState(0);
+  const [saving, setSaving] = useState(false);
+  const creatingRef = useRef(false);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -48,6 +50,10 @@ export default function useExams() {
   }, []);
 
   const create = useCallback(async (title) => {
+    if (creatingRef.current) return false;
+    creatingRef.current = true;
+    setSaving(true);
+    setActionError(null);
     try {
       const exam = await createExam(title);
       setExams((current) => [...current, exam]);
@@ -55,8 +61,11 @@ export default function useExams() {
     } catch (err) {
       setActionError(describeError(err));
       return false;
+    } finally {
+      creatingRef.current = false;
+      setSaving(false);
     }
   }, []);
 
-  return { status, exams, error, actionError, saving: false, reload, remove, create };
+  return { status, exams, error, actionError, saving, reload, remove, create };
 }
