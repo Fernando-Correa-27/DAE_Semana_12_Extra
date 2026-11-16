@@ -18,7 +18,7 @@
 //         ignore a second call while the first one is still in flight (use a ref: a state is too late).
 //
 // Rule of the course: no hook inside an if, a loop or after a return.
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { createExam, deleteExam, describeError, listExams } from "./api";
 
 export default function useExams() {
@@ -28,6 +28,7 @@ export default function useExams() {
   const [actionError, setActionError] = useState(null);
   const [saving, setSaving] = useState(false);
   const [attempt, setAttempt] = useState(0);
+  const creatingRef = useRef(false);
 
   // TODO 1: list the exams and move between the three states. The cleanup aborts the request and marks the answer as
   // obsolete, so a slow response can never overwrite a newer one.
@@ -60,9 +61,38 @@ export default function useExams() {
   // TODO 2: ask for the list again; the counter is the effect's dependency.
   const reload = useCallback(() => setAttempt((value) => value + 1), []);
 
-  const remove = useCallback(async () => false, []);
+  const remove = useCallback(async (id) => {
+    setActionError(null);
+    try {
+      await deleteExam(id);
+      // Team decision: update the list locally instead of asking for the whole list again. The DELETE response is the
+      // server's confirmation, so no extra GET is needed and the row disappears without reloading the page.
+      setExams((current) => current.filter((exam) => exam.id !== id));
+      return true;
+    } catch (err) {
+      setActionError(describeError(err));
+      return false;
+    }
+  }, []);
 
-  const create = useCallback(async () => false, []);
+  const create = useCallback(async (title) => {
+    // A ref changes immediately; state would still be false during the second click of the same render.
+    if (creatingRef.current) return false;
+    creatingRef.current = true;
+    setSaving(true);
+    setActionError(null);
+    try {
+      const exam = await createExam(title);
+      setExams((current) => [...current, exam]);
+      return true;
+    } catch (err) {
+      setActionError(describeError(err));
+      return false;
+    } finally {
+      creatingRef.current = false;
+      setSaving(false);
+    }
+  }, []);
 
   return { status, exams, error, actionError, saving, reload, remove, create };
 }
