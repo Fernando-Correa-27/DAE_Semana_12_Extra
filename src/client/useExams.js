@@ -16,18 +16,42 @@
 // TODO 2: `reload` (a counter that is a dependency of the effect is enough).
 // TODO 3: `remove` and `create`. NEVER swallow an error: set `actionError` with describeError. `create` must
 //         ignore a second call while the first one is still in flight (use a ref: a state is too late).
+//
 // Rule of the course: no hook inside an if, a loop or after a return.
+import { useCallback, useEffect, useState } from "react";
 import { createExam, deleteExam, describeError, listExams } from "./api";
 
 export default function useExams() {
-  return {
-    status: "loading",
-    exams: [],
-    error: null,
-    actionError: null,
-    saving: false,
-    reload: () => {},
-    remove: async () => false,
-    create: async () => false,
-  };
+  const [status, setStatus] = useState("loading");
+  const [exams, setExams] = useState([]);
+  const [error, setError] = useState(null);
+  const [actionError, setActionError] = useState(null);
+  const [saving, setSaving] = useState(false);
+  const [attempt, setAttempt] = useState(0);
+
+  // TODO 1: list the exams and move between the three states.
+  useEffect(() => {
+    setStatus("loading");
+    setError(null);
+
+    listExams()
+      .then((data) => {
+        setExams(data);
+        setStatus("ready");
+      })
+      .catch((err) => {
+        setExams([]);
+        setError(describeError(err));
+        setStatus("error");
+      });
+  }, [attempt]);
+
+  // TODO 2: ask for the list again; the counter is the effect's dependency.
+  const reload = useCallback(() => setAttempt((value) => value + 1), []);
+
+  const remove = useCallback(async () => false, []);
+
+  const create = useCallback(async () => false, []);
+
+  return { status, exams, error, actionError, saving, reload, remove, create };
 }
