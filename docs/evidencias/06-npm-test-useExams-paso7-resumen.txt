@@ -1,0 +1,7 @@
+$ npm test -- useExams (borrar y crear)
+
+ RUN  v3.2.7 C:/Users/Usuario/AppData/Local/Temp/opencode/wt-step7
+ ✓ src/test/useExams.test.jsx (18 tests) 680ms
+ Test Files  1 passed (1)
+      Tests  18 passed (18)
+   Duration  2.03s (transform 68ms, setup 208ms, collect 181ms, tests 680ms, environment 604ms, prepare 106ms)

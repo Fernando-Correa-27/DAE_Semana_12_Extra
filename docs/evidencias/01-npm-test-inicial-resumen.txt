@@ -1,0 +1,108 @@
+$ npm test - estado inicial (plantilla sin implementar)
+
+ RUN  v3.2.7 C:/Users/Usuario/AppData/Local/Temp/opencode/baseline
+ ✓ src/test/cli.test.js (14 tests) 554ms
+ ❯ src/test/api.test.js (14 tests | 14 failed) 13ms
+ ❯ src/test/cors.test.js (8 tests | 3 failed) 12ms
+ ❯ src/test/useExams.test.jsx (18 tests | 18 failed) 47ms
+ ❯ src/test/ExamList.test.jsx (10 tests | 9 failed) 87ms
+ ❯ src/test/App.test.jsx (3 tests | 2 failed) 87ms
+ Test Files  5 failed | 1 passed (6)
+      Tests  46 failed | 21 passed (67)
+   Duration  1.98s (transform 173ms, setup 1.77s, collect 1.33s, tests 800ms, environment 4.48s, prepare 754ms)
+ FAIL  src/test/api.test.js > api · el cliente está configurado en un solo sitio > es una instancia de Axios con la dirección base de la API, sin barra final
+ ❯ src/test/api.test.js:19:34
+ FAIL  src/test/api.test.js > api · el cliente está configurado en un solo sitio > tiene un tiempo de espera máximo
+ ❯ src/test/api.test.js:24:34
+ FAIL  src/test/api.test.js > api · el cliente está configurado en un solo sitio > todas las llamadas salen hacia la dirección base (cambiarla las mueve a todas)
+ ❯ src/test/api.test.js:31:31
+ FAIL  src/test/api.test.js > api · listExams, createExam y deleteExam > listExams hace GET /exams/ (con la barra final) y devuelve el arreglo, no la respuesta
+ ❯ src/test/api.test.js:43:43
+ FAIL  src/test/api.test.js > api · listExams, createExam y deleteExam > listExams entrega la señal a Axios: al abortar, la petición se cancela
+ ❯ src/test/api.test.js:53:30
+ FAIL  src/test/api.test.js > api · listExams, createExam y deleteExam > createExam hace POST /exams/ con { title } y devuelve el cuestionario creado
+ ❯ src/test/api.test.js:62:46
+ FAIL  src/test/api.test.js > api · listExams, createExam y deleteExam > deleteExam hace DELETE /exams/<id>/ y no devuelve nada
+ ❯ src/test/api.test.js:69:45
+ FAIL  src/test/api.test.js > api · listExams, createExam y deleteExam > un título vacío rechaza con el 400 de la API (el cliente no lo oculta)
+ ❯ src/test/api.test.js:77:40
+ FAIL  src/test/api.test.js > api · describeError > sin conexión (o CORS): dice que no pudo conectar y menciona el servidor y CORS
+ ❯ src/test/api.test.js:95:64
+ ❯ src/test/api.test.js:95:41
+ FAIL  src/test/api.test.js > api · describeError > tiempo agotado: dice que tardó demasiado
+ ❯ src/test/api.test.js:103:34
+ FAIL  src/test/api.test.js > api · describeError > 400: muestra el mensaje de la API para el campo
+ ❯ src/test/api.test.js:107:65
+ ❯ src/test/api.test.js:107:41
+ FAIL  src/test/api.test.js > api · describeError > 404: dice que el recurso ya no existe
+ ❯ src/test/api.test.js:113:56
+ ❯ src/test/api.test.js:113:32
+ FAIL  src/test/api.test.js > api · describeError > 500: incluye el número del estado
+ ❯ src/test/api.test.js:117:55
+ ❯ src/test/api.test.js:117:32
+ FAIL  src/test/api.test.js > api · describeError > un error cualquiera da una frase, nunca una cadena vacía
+ ❯ src/test/api.test.js:121:58
+ FAIL  src/test/App.test.jsx > App · la pantalla completa con la red simulada > dibuja el título y, tras la carga, la lista de cuestionarios
+ ❯ src/test/App.test.jsx:11:11
+ FAIL  src/test/App.test.jsx > App · la pantalla completa con la red simulada > con el servidor apagado la pantalla muestra el error; al encenderlo y Reintentar, vuelven los datos
+ ❯ src/test/App.test.jsx:19:11
+ FAIL  src/test/cors.test.js > cors · la política de la API > autoriza el origen del proyecto, http://localhost:5173
+ ❯ src/test/cors.test.js:9:59
+ FAIL  src/test/cors.test.js > cors · lo que ve la página (red simulada) > desde el origen del proyecto la petición llega y devuelve los cuestionarios
+ ❯ src/test/cors.test.js:47:30
+ FAIL  src/test/cors.test.js > cors · lo que ve la página (red simulada) > desde un origen ajeno el navegador la bloquea: solo se ve «Network Error», sin respuesta
+ ❯ src/test/cors.test.js:53:39
+ FAIL  src/test/ExamList.test.jsx > ExamList · los tres estados que ve la persona > con datos: una fila por cuestionario y el aviso de carga desaparece
+ ❯ src/test/ExamList.test.jsx:26:11
+ FAIL  src/test/ExamList.test.jsx > ExamList · los tres estados que ve la persona > con datos vacíos: dice que todavía no hay cuestionarios
+ ❯ src/test/ExamList.test.jsx:35:11
+ FAIL  src/test/ExamList.test.jsx > ExamList · los tres estados que ve la persona > con la API caída (500): una alerta con el mensaje y el botón Reintentar, no una lista vacía
+ ❯ src/test/ExamList.test.jsx:42:11
+ FAIL  src/test/ExamList.test.jsx > ExamList · los tres estados que ve la persona > con el servidor apagado: la alerta lo dice, y Reintentar vuelve a cargar y muestra los datos
+ ❯ src/test/ExamList.test.jsx:51:11
+ FAIL  src/test/ExamList.test.jsx > ExamList · borrar y crear > Eliminar quita la fila sin recargar la página
+ ❯ src/test/ExamList.test.jsx:63:11
+ FAIL  src/test/ExamList.test.jsx > ExamList · borrar y crear > si Eliminar falla: la fila sigue y una alerta explica el error
+ ❯ src/test/ExamList.test.jsx:71:11
+ FAIL  src/test/ExamList.test.jsx > ExamList · borrar y crear > Agregar crea el cuestionario, lo muestra y vacía el campo
+ ❯ src/test/ExamList.test.jsx:80:11
+ FAIL  src/test/ExamList.test.jsx > ExamList · borrar y crear > un doble clic en Agregar envía un solo POST y el botón se desactiva mientras espera
+ ❯ src/test/ExamList.test.jsx:89:11
+ FAIL  src/test/ExamList.test.jsx > ExamList · borrar y crear > con el título vacío se muestra el mensaje de la API, no una pantalla muda
+ ❯ src/test/ExamList.test.jsx:101:11
+ FAIL  src/test/useExams.test.jsx > useExams · los tres estados de la petición > empieza en loading, sin datos ni error, y pide GET /exams/ una vez
+ ❯ src/test/useExams.test.jsx:23:30
+ FAIL  src/test/useExams.test.jsx > useExams · los tres estados de la petición > cuando llegan los datos pasa a ready con los cuestionarios
+ ❯ src/test/useExams.test.jsx:28:30
+ FAIL  src/test/useExams.test.jsx > useExams · los tres estados de la petición > si la API responde 500 pasa a error, con una frase que dice el estado, y sin datos
+ ❯ src/test/useExams.test.jsx:37:11
+ FAIL  src/test/useExams.test.jsx > useExams · los tres estados de la petición > si el servidor está apagado (o CORS bloquea) pasa a error y lo explica
+ ❯ src/test/useExams.test.jsx:46:11
+ FAIL  src/test/useExams.test.jsx > useExams · los tres estados de la petición > reload vuelve a loading, pide otra vez y muestra lo nuevo
+ ❯ src/test/useExams.test.jsx:52:30
+ FAIL  src/test/useExams.test.jsx > useExams · los tres estados de la petición > reload después de un error: error, loading y ready
+ ❯ src/test/useExams.test.jsx:65:11
+ FAIL  src/test/useExams.test.jsx > useExams · limpieza y carrera de peticiones > al desmontar aborta la petición en vuelo
+ ❯ src/test/useExams.test.jsx:79:32
+ FAIL  src/test/useExams.test.jsx > useExams · limpieza y carrera de peticiones > al pedir otra vez (reload) aborta la petición anterior
+ ❯ src/test/useExams.test.jsx:87:32
+ FAIL  src/test/useExams.test.jsx > useExams · limpieza y carrera de peticiones > si la primera respuesta llega DESPUÉS de la segunda, no pisa a la nueva
+ ❯ src/test/useExams.test.jsx:96:11
+ FAIL  src/test/useExams.test.jsx > useExams · limpieza y carrera de peticiones > si la respuesta llega después de desmontar, no pasa nada (ni avisos en la consola)
+ ❯ src/test/useExams.test.jsx:108:11
+ FAIL  src/test/useExams.test.jsx > useExams · limpieza y carrera de peticiones > con StrictMode (el efecto corre dos veces) solo queda viva una petición y la pantalla acaba bien
+ ❯ src/test/useExams.test.jsx:115:37
+ FAIL  src/test/useExams.test.jsx > useExams · borrar > remove(id) hace DELETE y el cuestionario desaparece de la lista sin recargar
+ ❯ src/test/useExams.test.jsx:125:30
+ FAIL  src/test/useExams.test.jsx > useExams · borrar > si la API falla (500), la fila se queda, se explica el error y remove devuelve false
+ ❯ src/test/useExams.test.jsx:138:30
+ FAIL  src/test/useExams.test.jsx > useExams · crear > create(title) hace POST y añade el cuestionario creado al final
+ ❯ src/test/useExams.test.jsx:154:30
+ FAIL  src/test/useExams.test.jsx > useExams · crear > mientras el POST está en vuelo saving es true, y vuelve a false al terminar
+ ❯ src/test/useExams.test.jsx:166:30
+ FAIL  src/test/useExams.test.jsx > useExams · crear > dos create seguidos, con el primero en vuelo, envían un solo POST
+ ❯ src/test/useExams.test.jsx:177:30
+ FAIL  src/test/useExams.test.jsx > useExams · crear > un título vacío: la API responde 400, se muestra su mensaje y la lista no cambia
+ ❯ src/test/useExams.test.jsx:190:30
+ FAIL  src/test/useExams.test.jsx > useExams · crear > después de un error se puede volver a crear (saving no se queda atascado)
+ ❯ src/test/useExams.test.jsx:202:30

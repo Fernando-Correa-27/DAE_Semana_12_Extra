@@ -1,0 +1,12 @@
+$ npm run test:ai - final (tras impedir el doble envio)
+
+Test Files  0 failed | 6 passed (6)
+     Tests  0 failed | 67 passed (67)
+
+Por archivo:
+  api.test.js              14 pruebas,  0 fallidas
+  App.test.jsx              3 pruebas,  0 fallidas
+  cli.test.js              14 pruebas,  0 fallidas
+  cors.test.js              8 pruebas,  0 fallidas
+  ExamList.test.jsx        10 pruebas,  0 fallidas
+  useExams.test.jsx        18 pruebas,  0 fallidas

@@ -1,0 +1,5 @@
+$ npm test -- api
+
+ Test Files  1 passed (1)
+      Tests  14 passed (14)
+   Duration  1.86s (transform 47ms, setup 246ms, collect 199ms, tests 166ms, environment 718ms, prepare 215ms)

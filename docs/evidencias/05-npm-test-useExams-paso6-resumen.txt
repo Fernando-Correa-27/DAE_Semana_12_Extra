@@ -1,0 +1,32 @@
+$ npm test -- useExams (con cancelacion y carrera de peticiones)
+
+ RUN  v3.2.7 C:/Users/Usuario/AppData/Local/Temp/opencode/wt-step6
+ ❯ src/test/useExams.test.jsx (18 tests | 7 failed) 1478ms
+   ✓ useExams · los tres estados de la petición > empieza en loading, sin datos ni error, y pide GET /exams/ una vez 18ms
+   ✓ useExams · los tres estados de la petición > cuando llegan los datos pasa a ready con los cuestionarios 9ms
+   ✓ useExams · los tres estados de la petición > si la API responde 500 pasa a error, con una frase que dice el estado, y sin datos 16ms
+   ✓ useExams · los tres estados de la petición > si el servidor está apagado (o CORS bloquea) pasa a error y lo explica 32ms
+   ✓ useExams · los tres estados de la petición > reload vuelve a loading, pide otra vez y muestra lo nuevo 47ms
+   ✓ useExams · los tres estados de la petición > reload después de un error: error, loading y ready 63ms
+   ✓ useExams · limpieza y carrera de peticiones > al desmontar aborta la petición en vuelo 1ms
+   ✓ useExams · limpieza y carrera de peticiones > al pedir otra vez (reload) aborta la petición anterior 2ms
+   ✓ useExams · limpieza y carrera de peticiones > si la primera respuesta llega DESPUÉS de la segunda, no pisa a la nueva 44ms
+   ✓ useExams · limpieza y carrera de peticiones > si la respuesta llega después de desmontar, no pasa nada (ni avisos en la consola) 15ms
+   ✓ useExams · limpieza y carrera de peticiones > con StrictMode (el efecto corre dos veces) solo queda viva una petición y la pantalla acaba bien 32ms
+   × useExams · borrar > remove(id) hace DELETE y el cuestionario desaparece de la lista sin recargar 36ms
+     → expected { method: 'GET', …(8) } to match object { method: 'DELETE' }
+   × useExams · borrar > si la API falla (500), la fila se queda, se explica el error y remove devuelve false 356ms
+     → .toMatch() expects to receive a string, but got object
+   × useExams · crear > create(title) hace POST y añade el cuestionario creado al final 24ms
+     → expected { method: 'GET', …(8) } to match object { method: 'POST', …(1) }
+   × useExams · crear > mientras el POST está en vuelo saving es true, y vuelve a false al terminar 15ms
+     → expected false to be true // Object.is equality
+   × useExams · crear > dos create seguidos, con el primero en vuelo, envían un solo POST 32ms
+     → expected [] to have a length of 1 but got +0
+   × useExams · crear > un título vacío: la API responde 400, se muestra su mensaje y la lista no cambia 351ms
+     → .toMatch() expects to receive a string, but got object
+   × useExams · crear > después de un error se puede volver a crear (saving no se queda atascado) 383ms
+     → expected 'React · Hooks' to be 'Bueno' // Object.is equality
+ Test Files  1 failed (1)
+      Tests  7 failed | 11 passed (18)
+   Duration  2.83s (transform 58ms, setup 200ms, collect 172ms, tests 1.48s, environment 639ms, prepare 108ms)

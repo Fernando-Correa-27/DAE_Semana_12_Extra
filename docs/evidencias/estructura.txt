@@ -1,0 +1,110 @@
+DAE_Semana_12_Extra/
+├── cli/
+│   ├── examctl.mjs
+│   └── fake-api.mjs
+├── docs/
+│   ├── capturas/
+│   │   ├── 01-inicial-atascado.png
+│   │   ├── 02-estado-carga.png
+│   │   ├── 03-estado-tabla.png
+│   │   ├── 04-estado-error.png
+│   │   ├── 05-error-servidor-apagado.png
+│   │   ├── 06-error-500.png
+│   │   ├── 07-error-validacion.png
+│   │   ├── 08-error-cors.png
+│   │   ├── 09-lista-tras-crear.png
+│   │   ├── 10-lista-tras-borrar.png
+│   │   ├── 11-estructura-proyecto.png
+│   │   ├── 16-terminal-npm-test-inicial.png
+│   │   ├── 17-terminal-npm-test-final.png
+│   │   ├── 18-terminal-test-ai-inicial.png
+│   │   ├── 19-terminal-test-ai-tras-cors.png
+│   │   ├── 20-terminal-test-ai-tras-errores.png
+│   │   ├── 21-terminal-test-ai-tras-cancelacion.png
+│   │   ├── 22-terminal-test-ai-tras-borrado.png
+│   │   ├── 23-terminal-test-ai-final.png
+│   │   ├── 24-terminal-examctl.png
+│   │   ├── 25-terminal-cors-check.png
+│   │   ├── 26-terminal-npm-test-api.png
+│   │   ├── 27-terminal-npm-test-cors.png
+│   │   ├── 28-terminal-npm-test-useExams-paso5.png
+│   │   ├── 29-terminal-npm-test-useExams-paso6.png
+│   │   └── 30-terminal-npm-test-useExams-paso7.png
+│   ├── evidencias/
+│   │   ├── 01-npm-test-inicial-limpio.txt
+│   │   ├── 01-npm-test-inicial-resumen.txt
+│   │   ├── 01-npm-test-inicial.txt
+│   │   ├── 02-npm-test-api-resumen.txt
+│   │   ├── 02-npm-test-api.txt
+│   │   ├── 03-npm-test-cors-resumen.txt
+│   │   ├── 03-npm-test-cors.txt
+│   │   ├── 04-npm-test-useExams-paso5-limpio.txt
+│   │   ├── 04-npm-test-useExams-paso5-resumen.txt
+│   │   ├── 04-npm-test-useExams-paso5.txt
+│   │   ├── 05-npm-test-useExams-paso6-limpio.txt
+│   │   ├── 05-npm-test-useExams-paso6-resumen.txt
+│   │   ├── 05-npm-test-useExams-paso6.txt
+│   │   ├── 06-npm-test-useExams-paso7-limpio.txt
+│   │   ├── 06-npm-test-useExams-paso7-resumen.txt
+│   │   ├── 06-npm-test-useExams-paso7.txt
+│   │   ├── 07-npm-test-final-limpio.txt
+│   │   ├── 07-npm-test-final-resumen.txt
+│   │   ├── 07-npm-test-final.json
+│   │   ├── 07-npm-test-final.txt
+│   │   ├── 08-test-ai-inicial-resumen.txt
+│   │   ├── 08-test-ai-inicial.json
+│   │   ├── 08-test-ai-inicial.txt
+│   │   ├── 09-test-ai-tras-cors-resumen.txt
+│   │   ├── 09-test-ai-tras-cors.json
+│   │   ├── 10-test-ai-tras-errores-resumen.txt
+│   │   ├── 10-test-ai-tras-errores.json
+│   │   ├── 11-test-ai-tras-cancelacion-resumen.txt
+│   │   ├── 11-test-ai-tras-cancelacion.json
+│   │   ├── 12-test-ai-tras-borrado-resumen.txt
+│   │   ├── 12-test-ai-tras-borrado.json
+│   │   ├── 13-test-ai-final-limpio.txt
+│   │   ├── 13-test-ai-final-resumen.txt
+│   │   ├── 13-test-ai-final.json
+│   │   ├── 14-examctl-comandos.txt
+│   │   ├── 15-cors-check.txt
+│   │   ├── estructura.txt
+│   │   └── README.md
+│   └── DAE_Semana_12_Extra_Fernando_Correa.docx
+├── src/
+│   ├── ai/
+│   │   ├── api.js
+│   │   ├── cors.js
+│   │   └── useExams.js
+│   ├── client/
+│   │   ├── api.js
+│   │   ├── cors.js
+│   │   └── useExams.js
+│   ├── components/
+│   │   ├── ExamList.jsx
+│   │   └── NetworkPanel.jsx
+│   ├── lib/
+│   │   ├── cors.js
+│   │   ├── fakeApi.js
+│   │   └── fakeNetwork.js
+│   ├── test/
+│   │   ├── api.test.js
+│   │   ├── App.test.jsx
+│   │   ├── cli.test.js
+│   │   ├── cors.test.js
+│   │   ├── ExamList.test.jsx
+│   │   ├── helpers.js
+│   │   ├── setup.js
+│   │   └── useExams.test.jsx
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── styles.css
+├── .env.ai
+├── .env.solutions
+├── .env.team
+├── .gitignore
+├── AGENTS.md
+├── index.html
+├── package-lock.json
+├── package.json
+├── README.md
+└── vite.config.js

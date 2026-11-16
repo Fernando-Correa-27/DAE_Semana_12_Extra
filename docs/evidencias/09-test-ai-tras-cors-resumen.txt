@@ -1,0 +1,34 @@
+$ npm run test:ai - tras corregir CORS
+
+Test Files  4 failed | 2 passed (6)
+     Tests  20 failed | 47 passed (67)
+
+Por archivo:
+  api.test.js              14 pruebas,  1 fallidas
+  App.test.jsx              3 pruebas,  1 fallidas
+  cli.test.js              14 pruebas,  0 fallidas
+  cors.test.js              8 pruebas,  0 fallidas
+  ExamList.test.jsx        10 pruebas,  6 fallidas
+  useExams.test.jsx        18 pruebas, 12 fallidas
+
+Pruebas que fallan:
+  [api.test.js] api · listExams, createExam y deleteExam listExams entrega la señal a Axios: al abortar, la petición se cancela
+  [App.test.jsx] App · la pantalla completa con la red simulada con el servidor apagado la pantalla muestra el error; al encenderlo y Reintentar, vuelven los datos
+  [ExamList.test.jsx] ExamList · los tres estados que ve la persona con la API caída (500): una alerta con el mensaje y el botón Reintentar, no una lista vacía
+  [ExamList.test.jsx] ExamList · los tres estados que ve la persona con el servidor apagado: la alerta lo dice, y Reintentar vuelve a cargar y muestra los datos
+  [ExamList.test.jsx] ExamList · borrar y crear Eliminar quita la fila sin recargar la página
+  [ExamList.test.jsx] ExamList · borrar y crear si Eliminar falla: la fila sigue y una alerta explica el error
+  [ExamList.test.jsx] ExamList · borrar y crear un doble clic en Agregar envía un solo POST y el botón se desactiva mientras espera
+  [ExamList.test.jsx] ExamList · borrar y crear con el título vacío se muestra el mensaje de la API, no una pantalla muda
+  [useExams.test.jsx] useExams · los tres estados de la petición si la API responde 500 pasa a error, con una frase que dice el estado, y sin datos
+  [useExams.test.jsx] useExams · los tres estados de la petición si el servidor está apagado (o CORS bloquea) pasa a error y lo explica
+  [useExams.test.jsx] useExams · los tres estados de la petición reload después de un error: error, loading y ready
+  [useExams.test.jsx] useExams · limpieza y carrera de peticiones al desmontar aborta la petición en vuelo
+  [useExams.test.jsx] useExams · limpieza y carrera de peticiones al pedir otra vez (reload) aborta la petición anterior
+  [useExams.test.jsx] useExams · limpieza y carrera de peticiones si la primera respuesta llega DESPUÉS de la segunda, no pisa a la nueva
+  [useExams.test.jsx] useExams · limpieza y carrera de peticiones con StrictMode (el efecto corre dos veces) solo queda viva una petición y la pantalla acaba bien
+  [useExams.test.jsx] useExams · borrar remove(id) hace DELETE y el cuestionario desaparece de la lista sin recargar
+  [useExams.test.jsx] useExams · borrar si la API falla (500), la fila se queda, se explica el error y remove devuelve false
+  [useExams.test.jsx] useExams · crear mientras el POST está en vuelo saving es true, y vuelve a false al terminar
+  [useExams.test.jsx] useExams · crear dos create seguidos, con el primero en vuelo, envían un solo POST
+  [useExams.test.jsx] useExams · crear un título vacío: la API responde 400, se muestra su mensaje y la lista no cambia

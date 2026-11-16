@@ -1,0 +1,756 @@
+
+> dae-s12-servicios-web-con-react@0.1.0 test
+> vitest run --mode team
+
+
+[1m[46m RUN [49m[22m [36mv3.2.7 [39m[90mC:/Users/Usuario/AppData/Local/Temp/opencode/baseline[39m
+
+ [32m✓[39m src/test/cli.test.js [2m([22m[2m14 tests[22m[2m)[22m[33m 554[2mms[22m[39m
+ [31m❯[39m src/test/api.test.js [2m([22m[2m14 tests[22m[2m | [22m[31m14 failed[39m[2m)[22m[32m 13[2mms[22m[39m
+[31m   [31m×[31m api · el cliente está configurado en un solo sitio[2m > [22mes una instancia de Axios con la dirección base de la API, sin barra final[39m[32m 5[2mms[22m[39m
+[31m     → .toMatch() expects to receive a string, but got undefined[39m
+[31m   [31m×[31m api · el cliente está configurado en un solo sitio[2m > [22mtiene un tiempo de espera máximo[39m[32m 2[2mms[22m[39m
+[31m     → expected 0 to be greater than 0[39m
+[31m   [31m×[31m api · el cliente está configurado en un solo sitio[2m > [22mtodas las llamadas salen hacia la dirección base (cambiarla las mueve a todas)[39m[32m 1[2mms[22m[39m
+[31m     → TODO: listExams[39m
+[31m   [31m×[31m api · listExams, createExam y deleteExam[2m > [22mlistExams hace GET /exams/ (con la barra final) y devuelve el arreglo, no la respuesta[39m[32m 0[2mms[22m[39m
+[31m     → TODO: listExams[39m
+[31m   [31m×[31m api · listExams, createExam y deleteExam[2m > [22mlistExams entrega la señal a Axios: al abortar, la petición se cancela[39m[32m 0[2mms[22m[39m
+[31m     → TODO: listExams[39m
+[31m   [31m×[31m api · listExams, createExam y deleteExam[2m > [22mcreateExam hace POST /exams/ con { title } y devuelve el cuestionario creado[39m[32m 0[2mms[22m[39m
+[31m     → TODO: createExam[39m
+[31m   [31m×[31m api · listExams, createExam y deleteExam[2m > [22mdeleteExam hace DELETE /exams/<id>/ y no devuelve nada[39m[32m 0[2mms[22m[39m
+[31m     → TODO: deleteExam[39m
+[31m   [31m×[31m api · listExams, createExam y deleteExam[2m > [22mun título vacío rechaza con el 400 de la API (el cliente no lo oculta)[39m[32m 0[2mms[22m[39m
+[31m     → TODO: createExam[39m
+[31m   [31m×[31m api · describeError[2m > [22msin conexión (o CORS): dice que no pudo conectar y menciona el servidor y CORS[39m[32m 0[2mms[22m[39m
+[31m     → TODO: listExams[39m
+[31m   [31m×[31m api · describeError[2m > [22mtiempo agotado: dice que tardó demasiado[39m[32m 1[2mms[22m[39m
+[31m     → expected 'TODO' to match /tard/i[39m
+[31m   [31m×[31m api · describeError[2m > [22m400: muestra el mensaje de la API para el campo[39m[32m 0[2mms[22m[39m
+[31m     → TODO: createExam[39m
+[31m   [31m×[31m api · describeError[2m > [22m404: dice que el recurso ya no existe[39m[32m 0[2mms[22m[39m
+[31m     → TODO: deleteExam[39m
+[31m   [31m×[31m api · describeError[2m > [22m500: incluye el número del estado[39m[32m 0[2mms[22m[39m
+[31m     → TODO: listExams[39m
+[31m   [31m×[31m api · describeError[2m > [22mun error cualquiera da una frase, nunca una cadena vacía[39m[32m 0[2mms[22m[39m
+[31m     → expected 4 to be greater than 10[39m
+ [31m❯[39m src/test/cors.test.js [2m([22m[2m8 tests[22m[2m | [22m[31m3 failed[39m[2m)[22m[32m 12[2mms[22m[39m
+[31m   [31m×[31m cors · la política de la API[2m > [22mautoriza el origen del proyecto, http://localhost:5173[39m[32m 9[2mms[22m[39m
+[31m     → expected false to be true // Object.is equality[39m
+   [32m✓[39m cors · la política de la API[2m > [22mno usa el comodín: ninguna entrada es «*»[32m 1[2mms[22m[39m
+   [32m✓[39m cors · la política de la API[2m > [22mcada origen es esquema + host + puerto, sin barra final[32m 0[2mms[22m[39m
+   [32m✓[39m cors · la política de la API[2m > [22mun sitio ajeno queda fuera[32m 0[2mms[22m[39m
+   [32m✓[39m cors · la política de la API[2m > [22motro puerto del mismo equipo también queda fuera (el origen incluye el puerto)[32m 0[2mms[22m[39m
+   [32m✓[39m cors · la política de la API[2m > [22mno mezcla credenciales con orígenes abiertos[32m 0[2mms[22m[39m
+[31m   [31m×[31m cors · lo que ve la página (red simulada)[2m > [22mdesde el origen del proyecto la petición llega y devuelve los cuestionarios[39m[32m 1[2mms[22m[39m
+[31m     → TODO: listExams[39m
+[31m   [31m×[31m cors · lo que ve la página (red simulada)[2m > [22mdesde un origen ajeno el navegador la bloquea: solo se ve «Network Error», sin respuesta[39m[32m 0[2mms[22m[39m
+[31m     → TODO: listExams[39m
+ [31m❯[39m src/test/useExams.test.jsx [2m([22m[2m18 tests[22m[2m | [22m[31m18 failed[39m[2m)[22m[32m 47[2mms[22m[39m
+[31m   [31m×[31m useExams · los tres estados de la petición[2m > [22mempieza en loading, sin datos ni error, y pide GET /exams/ una vez[39m[32m 20[2mms[22m[39m
+[31m     → expected [] to have a length of 1 but got +0[39m
+[31m   [31m×[31m useExams · los tres estados de la petición[2m > [22mcuando llegan los datos pasa a ready con los cuestionarios[39m[32m 3[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'release')[39m
+[31m   [31m×[31m useExams · los tres estados de la petición[2m > [22msi la API responde 500 pasa a error, con una frase que dice el estado, y sin datos[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'release')[39m
+[31m   [31m×[31m useExams · los tres estados de la petición[2m > [22msi el servidor está apagado (o CORS bloquea) pasa a error y lo explica[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'release')[39m
+[31m   [31m×[31m useExams · los tres estados de la petición[2m > [22mreload vuelve a loading, pide otra vez y muestra lo nuevo[39m[32m 3[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'release')[39m
+[31m   [31m×[31m useExams · los tres estados de la petición[2m > [22mreload después de un error: error, loading y ready[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'release')[39m
+[31m   [31m×[31m useExams · limpieza y carrera de peticiones[2m > [22mal desmontar aborta la petición en vuelo[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'aborted')[39m
+[31m   [31m×[31m useExams · limpieza y carrera de peticiones[2m > [22mal pedir otra vez (reload) aborta la petición anterior[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'aborted')[39m
+[31m   [31m×[31m useExams · limpieza y carrera de peticiones[2m > [22msi la primera respuesta llega DESPUÉS de la segunda, no pisa a la nueva[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'release')[39m
+[31m   [31m×[31m useExams · limpieza y carrera de peticiones[2m > [22msi la respuesta llega después de desmontar, no pasa nada (ni avisos en la consola)[39m[32m 3[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'release')[39m
+[31m   [31m×[31m useExams · limpieza y carrera de peticiones[2m > [22mcon StrictMode (el efecto corre dos veces) solo queda viva una petición y la pantalla acaba bien[39m[32m 2[2mms[22m[39m
+[31m     → expected 0 to be greater than or equal to 2[39m
+[31m   [31m×[31m useExams · borrar[2m > [22mremove(id) hace DELETE y el cuestionario desaparece de la lista sin recargar[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'release')[39m
+[31m   [31m×[31m useExams · borrar[2m > [22msi la API falla (500), la fila se queda, se explica el error y remove devuelve false[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'release')[39m
+[31m   [31m×[31m useExams · crear[2m > [22mcreate(title) hace POST y añade el cuestionario creado al final[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'release')[39m
+[31m   [31m×[31m useExams · crear[2m > [22mmientras el POST está en vuelo saving es true, y vuelve a false al terminar[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'release')[39m
+[31m   [31m×[31m useExams · crear[2m > [22mdos create seguidos, con el primero en vuelo, envían un solo POST[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'release')[39m
+[31m   [31m×[31m useExams · crear[2m > [22mun título vacío: la API responde 400, se muestra su mensaje y la lista no cambia[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'release')[39m
+[31m   [31m×[31m useExams · crear[2m > [22mdespués de un error se puede volver a crear (saving no se queda atascado)[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'release')[39m
+ [31m❯[39m src/test/ExamList.test.jsx [2m([22m[2m10 tests[22m[2m | [22m[31m9 failed[39m[2m)[22m[32m 87[2mms[22m[39m
+   [32m✓[39m ExamList · los tres estados que ve la persona[2m > [22mcargando: un aviso de estado y ni tabla ni error[32m 63[2mms[22m[39m
+[31m   [31m×[31m ExamList · los tres estados que ve la persona[2m > [22mcon datos: una fila por cuestionario y el aviso de carga desaparece[39m[32m 7[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'release')[39m
+[31m   [31m×[31m ExamList · los tres estados que ve la persona[2m > [22mcon datos vacíos: dice que todavía no hay cuestionarios[39m[32m 3[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'release')[39m
+[31m   [31m×[31m ExamList · los tres estados que ve la persona[2m > [22mcon la API caída (500): una alerta con el mensaje y el botón Reintentar, no una lista vacía[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'release')[39m
+[31m   [31m×[31m ExamList · los tres estados que ve la persona[2m > [22mcon el servidor apagado: la alerta lo dice, y Reintentar vuelve a cargar y muestra los datos[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'release')[39m
+[31m   [31m×[31m ExamList · borrar y crear[2m > [22mEliminar quita la fila sin recargar la página[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'release')[39m
+[31m   [31m×[31m ExamList · borrar y crear[2m > [22msi Eliminar falla: la fila sigue y una alerta explica el error[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'release')[39m
+[31m   [31m×[31m ExamList · borrar y crear[2m > [22mAgregar crea el cuestionario, lo muestra y vacía el campo[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'release')[39m
+[31m   [31m×[31m ExamList · borrar y crear[2m > [22mun doble clic en Agregar envía un solo POST y el botón se desactiva mientras espera[39m[32m 1[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'release')[39m
+[31m   [31m×[31m ExamList · borrar y crear[2m > [22mcon el título vacío se muestra el mensaje de la API, no una pantalla muda[39m[32m 2[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'release')[39m
+ [31m❯[39m src/test/App.test.jsx [2m([22m[2m3 tests[22m[2m | [22m[31m2 failed[39m[2m)[22m[32m 87[2mms[22m[39m
+[31m   [31m×[31m App · la pantalla completa con la red simulada[2m > [22mdibuja el título y, tras la carga, la lista de cuestionarios[39m[32m 77[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'release')[39m
+[31m   [31m×[31m App · la pantalla completa con la red simulada[2m > [22mcon el servidor apagado la pantalla muestra el error; al encenderlo y Reintentar, vuelven los datos[39m[32m 3[2mms[22m[39m
+[31m     → Cannot read properties of undefined (reading 'release')[39m
+   [32m✓[39m App · la pantalla completa con la red simulada[2m > [22msin red simulada (API real) no aparece el panel[32m 5[2mms[22m[39m
+
+[2m Test Files [22m [1m[31m5 failed[39m[22m[2m | [22m[1m[32m1 passed[39m[22m[90m (6)[39m
+[2m      Tests [22m [1m[31m46 failed[39m[22m[2m | [22m[1m[32m21 passed[39m[22m[90m (67)[39m
+[2m   Start at [22m 20:04:19
+[2m   Duration [22m 1.98s[2m (transform 173ms, setup 1.77s, collect 1.33s, tests 800ms, environment 4.48s, prepare 754ms)[22m
+
+
+[31m⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 46 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m src/test/api.test.js[2m > [22mapi · el cliente está configurado en un solo sitio[2m > [22mes una instancia de Axios con la dirección base de la API, sin barra final
+[31m[1mTypeError[22m: .toMatch() expects to receive a string, but got undefined[39m
+[36m [2m❯[22m src/test/api.test.js:[2m19:34[22m[39m
+    [90m 17| [39m[34mdescribe[39m([32m"api · el cliente está configurado en un solo sitio"[39m[33m,[39m () [33m=>[39m {
+    [90m 18| [39m  it("es una instancia de Axios con la dirección base de la API, sin b…
+    [90m 19| [39m    expect(api.defaults.baseURL).toMatch(/^https?:\/\/[^/]+(\/[a-z]+)*…
+    [90m   | [39m                                 [31m^[39m
+    [90m 20| [39m    [34mexpect[39m(api[33m.[39mdefaults[33m.[39mbaseURL)[33m.[39m[34mtoContain[39m([32m"/api"[39m)[33m;[39m
+    [90m 21| [39m  })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/api.test.js[2m > [22mapi · el cliente está configurado en un solo sitio[2m > [22mtiene un tiempo de espera máximo
+[31m[1mAssertionError[22m: expected 0 to be greater than 0[39m
+[36m [2m❯[22m src/test/api.test.js:[2m24:34[22m[39m
+    [90m 22| [39m
+    [90m 23| [39m  [34mit[39m([32m"tiene un tiempo de espera máximo"[39m[33m,[39m () [33m=>[39m {
+    [90m 24| [39m    [34mexpect[39m(api[33m.[39mdefaults[33m.[39mtimeout)[33m.[39m[34mtoBeGreaterThan[39m([34m0[39m)[33m;[39m
+    [90m   | [39m                                 [31m^[39m
+    [90m 25| [39m  })[33m;[39m
+    [90m 26| [39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/api.test.js[2m > [22mapi · el cliente está configurado en un solo sitio[2m > [22mtodas las llamadas salen hacia la dirección base (cambiarla las mueve a todas)
+[31m[1mError[22m: TODO: listExams[39m
+[36m [2m❯[22m listExams src/client/api.js:[2m16:9[22m[39m
+    [90m 14| [39m/** TODO 3: GET /exams/ -> the array of exams (response.data, not the …
+    [90m 15| [39m[35mexport[39m [35mfunction[39m [34mlistExams[39m({ signal } [33m=[39m {}) {
+    [90m 16| [39m  [35mthrow[39m [35mnew[39m [33mError[39m([32m"TODO: listExams"[39m)[33m;[39m
+    [90m   | [39m        [31m^[39m
+    [90m 17| [39m}
+    [90m 18| [39m
+[90m [2m❯[22m src/test/api.test.js:[2m31:31[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/api.test.js[2m > [22mapi · listExams, createExam y deleteExam[2m > [22mlistExams hace GET /exams/ (con la barra final) y devuelve el arreglo, no la respuesta
+[31m[1mError[22m: TODO: listExams[39m
+[36m [2m❯[22m listExams src/client/api.js:[2m16:9[22m[39m
+    [90m 14| [39m/** TODO 3: GET /exams/ -> the array of exams (response.data, not the …
+    [90m 15| [39m[35mexport[39m [35mfunction[39m [34mlistExams[39m({ signal } [33m=[39m {}) {
+    [90m 16| [39m  [35mthrow[39m [35mnew[39m [33mError[39m([32m"TODO: listExams"[39m)[33m;[39m
+    [90m   | [39m        [31m^[39m
+    [90m 17| [39m}
+    [90m 18| [39m
+[90m [2m❯[22m src/test/api.test.js:[2m43:43[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/api.test.js[2m > [22mapi · listExams, createExam y deleteExam[2m > [22mlistExams entrega la señal a Axios: al abortar, la petición se cancela
+[31m[1mError[22m: TODO: listExams[39m
+[36m [2m❯[22m listExams src/client/api.js:[2m16:9[22m[39m
+    [90m 14| [39m/** TODO 3: GET /exams/ -> the array of exams (response.data, not the …
+    [90m 15| [39m[35mexport[39m [35mfunction[39m [34mlistExams[39m({ signal } [33m=[39m {}) {
+    [90m 16| [39m  [35mthrow[39m [35mnew[39m [33mError[39m([32m"TODO: listExams"[39m)[33m;[39m
+    [90m   | [39m        [31m^[39m
+    [90m 17| [39m}
+    [90m 18| [39m
+[90m [2m❯[22m src/test/api.test.js:[2m53:30[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/api.test.js[2m > [22mapi · listExams, createExam y deleteExam[2m > [22mcreateExam hace POST /exams/ con { title } y devuelve el cuestionario creado
+[31m[1mError[22m: TODO: createExam[39m
+[36m [2m❯[22m createExam src/client/api.js:[2m21:9[22m[39m
+    [90m 19| [39m/** TODO 4: POST /exams/ with { title } -> the exam the server created…
+    [90m 20| [39m[35mexport[39m [35mfunction[39m [34mcreateExam[39m(title) {
+    [90m 21| [39m  [35mthrow[39m [35mnew[39m [33mError[39m([32m"TODO: createExam"[39m)[33m;[39m
+    [90m   | [39m        [31m^[39m
+    [90m 22| [39m}
+    [90m 23| [39m
+[90m [2m❯[22m src/test/api.test.js:[2m62:46[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/api.test.js[2m > [22mapi · listExams, createExam y deleteExam[2m > [22mdeleteExam hace DELETE /exams/<id>/ y no devuelve nada
+[31m[1mError[22m: TODO: deleteExam[39m
+[36m [2m❯[22m deleteExam src/client/api.js:[2m26:9[22m[39m
+    [90m 24| [39m/** TODO 5: DELETE /exams/<id>/ -> resolves with undefined. The API's …
+    [90m 25| [39m[35mexport[39m [35mfunction[39m [34mdeleteExam[39m(id) {
+    [90m 26| [39m  [35mthrow[39m [35mnew[39m [33mError[39m([32m"TODO: deleteExam"[39m)[33m;[39m
+    [90m   | [39m        [31m^[39m
+    [90m 27| [39m}
+    [90m 28| [39m
+[90m [2m❯[22m src/test/api.test.js:[2m69:45[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/api.test.js[2m > [22mapi · listExams, createExam y deleteExam[2m > [22mun título vacío rechaza con el 400 de la API (el cliente no lo oculta)
+[31m[1mError[22m: TODO: createExam[39m
+[36m [2m❯[22m createExam src/client/api.js:[2m21:9[22m[39m
+    [90m 19| [39m/** TODO 4: POST /exams/ with { title } -> the exam the server created…
+    [90m 20| [39m[35mexport[39m [35mfunction[39m [34mcreateExam[39m(title) {
+    [90m 21| [39m  [35mthrow[39m [35mnew[39m [33mError[39m([32m"TODO: createExam"[39m)[33m;[39m
+    [90m   | [39m        [31m^[39m
+    [90m 22| [39m}
+    [90m 23| [39m
+[90m [2m❯[22m src/test/api.test.js:[2m77:40[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/api.test.js[2m > [22mapi · describeError[2m > [22msin conexión (o CORS): dice que no pudo conectar y menciona el servidor y CORS
+[31m[1mError[22m: TODO: listExams[39m
+[36m [2m❯[22m listExams src/client/api.js:[2m16:9[22m[39m
+    [90m 14| [39m/** TODO 3: GET /exams/ -> the array of exams (response.data, not the …
+    [90m 15| [39m[35mexport[39m [35mfunction[39m [34mlistExams[39m({ signal } [33m=[39m {}) {
+    [90m 16| [39m  [35mthrow[39m [35mnew[39m [33mError[39m([32m"TODO: listExams"[39m)[33m;[39m
+    [90m   | [39m        [31m^[39m
+    [90m 17| [39m}
+    [90m 18| [39m
+[90m [2m❯[22m src/test/api.test.js:[2m95:64[22m[39m
+[90m [2m❯[22m failure src/test/api.test.js:[2m88:21[22m[39m
+[90m [2m❯[22m src/test/api.test.js:[2m95:41[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/api.test.js[2m > [22mapi · describeError[2m > [22mtiempo agotado: dice que tardó demasiado
+[31m[1mAssertionError[22m: expected 'TODO' to match /tard/i[39m
+
+[32m- Expected:[39m 
+/tard/i
+
+[31m+ Received:[39m 
+"TODO"
+
+[36m [2m❯[22m src/test/api.test.js:[2m103:34[22m[39m
+    [90m101| [39m  [34mit[39m([32m"tiempo agotado: dice que tardó demasiado"[39m[33m,[39m () [33m=>[39m {
+    [90m102| [39m    const error = Object.assign(new Error("timeout of 8000ms exceeded"…
+    [90m103| [39m    [34mexpect[39m([34mdescribeError[39m(error))[33m.[39m[34mtoMatch[39m([36m/tard/i[39m)[33m;[39m
+    [90m   | [39m                                 [31m^[39m
+    [90m104| [39m  })[33m;[39m
+    [90m105| [39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/api.test.js[2m > [22mapi · describeError[2m > [22m400: muestra el mensaje de la API para el campo
+[31m[1mError[22m: TODO: createExam[39m
+[36m [2m❯[22m createExam src/client/api.js:[2m21:9[22m[39m
+    [90m 19| [39m/** TODO 4: POST /exams/ with { title } -> the exam the server created…
+    [90m 20| [39m[35mexport[39m [35mfunction[39m [34mcreateExam[39m(title) {
+    [90m 21| [39m  [35mthrow[39m [35mnew[39m [33mError[39m([32m"TODO: createExam"[39m)[33m;[39m
+    [90m   | [39m        [31m^[39m
+    [90m 22| [39m}
+    [90m 23| [39m
+[90m [2m❯[22m src/test/api.test.js:[2m107:65[22m[39m
+[90m [2m❯[22m failure src/test/api.test.js:[2m88:21[22m[39m
+[90m [2m❯[22m src/test/api.test.js:[2m107:41[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/api.test.js[2m > [22mapi · describeError[2m > [22m404: dice que el recurso ya no existe
+[31m[1mError[22m: TODO: deleteExam[39m
+[36m [2m❯[22m deleteExam src/client/api.js:[2m26:9[22m[39m
+    [90m 24| [39m/** TODO 5: DELETE /exams/<id>/ -> resolves with undefined. The API's …
+    [90m 25| [39m[35mexport[39m [35mfunction[39m [34mdeleteExam[39m(id) {
+    [90m 26| [39m  [35mthrow[39m [35mnew[39m [33mError[39m([32m"TODO: deleteExam"[39m)[33m;[39m
+    [90m   | [39m        [31m^[39m
+    [90m 27| [39m}
+    [90m 28| [39m
+[90m [2m❯[22m src/test/api.test.js:[2m113:56[22m[39m
+[90m [2m❯[22m failure src/test/api.test.js:[2m88:21[22m[39m
+[90m [2m❯[22m src/test/api.test.js:[2m113:32[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/api.test.js[2m > [22mapi · describeError[2m > [22m500: incluye el número del estado
+[31m[1mError[22m: TODO: listExams[39m
+[36m [2m❯[22m listExams src/client/api.js:[2m16:9[22m[39m
+    [90m 14| [39m/** TODO 3: GET /exams/ -> the array of exams (response.data, not the …
+    [90m 15| [39m[35mexport[39m [35mfunction[39m [34mlistExams[39m({ signal } [33m=[39m {}) {
+    [90m 16| [39m  [35mthrow[39m [35mnew[39m [33mError[39m([32m"TODO: listExams"[39m)[33m;[39m
+    [90m   | [39m        [31m^[39m
+    [90m 17| [39m}
+    [90m 18| [39m
+[90m [2m❯[22m src/test/api.test.js:[2m117:55[22m[39m
+[90m [2m❯[22m failure src/test/api.test.js:[2m88:21[22m[39m
+[90m [2m❯[22m src/test/api.test.js:[2m117:32[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/api.test.js[2m > [22mapi · describeError[2m > [22mun error cualquiera da una frase, nunca una cadena vacía
+[31m[1mAssertionError[22m: expected 4 to be greater than 10[39m
+[36m [2m❯[22m src/test/api.test.js:[2m121:58[22m[39m
+    [90m119| [39m
+    [90m120| [39m  it("un error cualquiera da una frase, nunca una cadena vacía", () =>…
+    [90m121| [39m    expect(describeError(new Error("algo raro")).length).toBeGreaterTh…
+    [90m   | [39m                                                         [31m^[39m
+    [90m122| [39m    [34mexpect[39m([34mdescribeError[39m(undefined)[33m.[39mlength)[33m.[39m[34mtoBeGreaterThan[39m([34m10[39m)[33m;[39m
+    [90m123| [39m  })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/App.test.jsx[2m > [22mApp · la pantalla completa con la red simulada[2m > [22mdibuja el título y, tras la carga, la lista de cuestionarios
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'release')[39m
+[36m [2m❯[22m release src/test/helpers.js:[2m24:27[22m[39m
+    [90m 22| [39m/** Releases the request number `index` (or the last one) and waits fo…
+    [90m 23| [39mexport async function release(network, index = network.requests.length…
+    [90m 24| [39m  network[33m.[39mrequests[index][33m.[39m[34mrelease[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m 25| [39m  [35mawait[39m [34msettle[39m()[33m;[39m
+    [90m 26| [39m}
+[90m [2m❯[22m src/test/App.test.jsx:[2m11:11[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/App.test.jsx[2m > [22mApp · la pantalla completa con la red simulada[2m > [22mcon el servidor apagado la pantalla muestra el error; al encenderlo y Reintentar, vuelven los datos
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'release')[39m
+[36m [2m❯[22m release src/test/helpers.js:[2m24:27[22m[39m
+    [90m 22| [39m/** Releases the request number `index` (or the last one) and waits fo…
+    [90m 23| [39mexport async function release(network, index = network.requests.length…
+    [90m 24| [39m  network[33m.[39mrequests[index][33m.[39m[34mrelease[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m 25| [39m  [35mawait[39m [34msettle[39m()[33m;[39m
+    [90m 26| [39m}
+[90m [2m❯[22m src/test/App.test.jsx:[2m19:11[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/cors.test.js[2m > [22mcors · la política de la API[2m > [22mautoriza el origen del proyecto, http://localhost:5173
+[31m[1mAssertionError[22m: expected false to be true // Object.is equality[39m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- true[39m
+[31m+ false[39m
+
+[36m [2m❯[22m src/test/cors.test.js:[2m9:59[22m[39m
+    [90m  7| [39m[34mdescribe[39m([32m"cors · la política de la API"[39m[33m,[39m () [33m=>[39m {
+    [90m  8| [39m  [34mit[39m([32m"autoriza el origen del proyecto, http://localhost:5173"[39m[33m,[39m () [33m=>[39m {
+    [90m  9| [39m    [34mexpect[39m([34mcheckCors[39m([33mPROJECT_ORIGIN[39m[33m,[39m corsPolicy)[33m.[39mallowed)[33m.[39m[34mtoBe[39m([35mtrue[39m)[33m;[39m
+    [90m   | [39m                                                          [31m^[39m
+    [90m 10| [39m  })[33m;[39m
+    [90m 11| [39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/cors.test.js[2m > [22mcors · lo que ve la página (red simulada)[2m > [22mdesde el origen del proyecto la petición llega y devuelve los cuestionarios
+[31m[1mError[22m: TODO: listExams[39m
+[36m [2m❯[22m listExams src/client/api.js:[2m16:9[22m[39m
+    [90m 14| [39m/** TODO 3: GET /exams/ -> the array of exams (response.data, not the …
+    [90m 15| [39m[35mexport[39m [35mfunction[39m [34mlistExams[39m({ signal } [33m=[39m {}) {
+    [90m 16| [39m  [35mthrow[39m [35mnew[39m [33mError[39m([32m"TODO: listExams"[39m)[33m;[39m
+    [90m   | [39m        [31m^[39m
+    [90m 17| [39m}
+    [90m 18| [39m
+[90m [2m❯[22m callFrom src/test/cors.test.js:[2m37:30[22m[39m
+[90m [2m❯[22m src/test/cors.test.js:[2m47:30[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/cors.test.js[2m > [22mcors · lo que ve la página (red simulada)[2m > [22mdesde un origen ajeno el navegador la bloquea: solo se ve «Network Error», sin respuesta
+[31m[1mError[22m: TODO: listExams[39m
+[36m [2m❯[22m listExams src/client/api.js:[2m16:9[22m[39m
+    [90m 14| [39m/** TODO 3: GET /exams/ -> the array of exams (response.data, not the …
+    [90m 15| [39m[35mexport[39m [35mfunction[39m [34mlistExams[39m({ signal } [33m=[39m {}) {
+    [90m 16| [39m  [35mthrow[39m [35mnew[39m [33mError[39m([32m"TODO: listExams"[39m)[33m;[39m
+    [90m   | [39m        [31m^[39m
+    [90m 17| [39m}
+    [90m 18| [39m
+[90m [2m❯[22m callFrom src/test/cors.test.js:[2m37:30[22m[39m
+[90m [2m❯[22m src/test/cors.test.js:[2m53:39[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/ExamList.test.jsx[2m > [22mExamList · los tres estados que ve la persona[2m > [22mcon datos: una fila por cuestionario y el aviso de carga desaparece
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'release')[39m
+[36m [2m❯[22m release src/test/helpers.js:[2m24:27[22m[39m
+    [90m 22| [39m/** Releases the request number `index` (or the last one) and waits fo…
+    [90m 23| [39mexport async function release(network, index = network.requests.length…
+    [90m 24| [39m  network[33m.[39mrequests[index][33m.[39m[34mrelease[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m 25| [39m  [35mawait[39m [34msettle[39m()[33m;[39m
+    [90m 26| [39m}
+[90m [2m❯[22m renderReady src/test/ExamList.test.jsx:[2m13:9[22m[39m
+[90m [2m❯[22m src/test/ExamList.test.jsx:[2m26:11[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/ExamList.test.jsx[2m > [22mExamList · los tres estados que ve la persona[2m > [22mcon datos vacíos: dice que todavía no hay cuestionarios
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'release')[39m
+[36m [2m❯[22m release src/test/helpers.js:[2m24:27[22m[39m
+    [90m 22| [39m/** Releases the request number `index` (or the last one) and waits fo…
+    [90m 23| [39mexport async function release(network, index = network.requests.length…
+    [90m 24| [39m  network[33m.[39mrequests[index][33m.[39m[34mrelease[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m 25| [39m  [35mawait[39m [34msettle[39m()[33m;[39m
+    [90m 26| [39m}
+[90m [2m❯[22m src/test/ExamList.test.jsx:[2m35:11[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/ExamList.test.jsx[2m > [22mExamList · los tres estados que ve la persona[2m > [22mcon la API caída (500): una alerta con el mensaje y el botón Reintentar, no una lista vacía
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'release')[39m
+[36m [2m❯[22m release src/test/helpers.js:[2m24:27[22m[39m
+    [90m 22| [39m/** Releases the request number `index` (or the last one) and waits fo…
+    [90m 23| [39mexport async function release(network, index = network.requests.length…
+    [90m 24| [39m  network[33m.[39mrequests[index][33m.[39m[34mrelease[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m 25| [39m  [35mawait[39m [34msettle[39m()[33m;[39m
+    [90m 26| [39m}
+[90m [2m❯[22m src/test/ExamList.test.jsx:[2m42:11[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/ExamList.test.jsx[2m > [22mExamList · los tres estados que ve la persona[2m > [22mcon el servidor apagado: la alerta lo dice, y Reintentar vuelve a cargar y muestra los datos
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'release')[39m
+[36m [2m❯[22m release src/test/helpers.js:[2m24:27[22m[39m
+    [90m 22| [39m/** Releases the request number `index` (or the last one) and waits fo…
+    [90m 23| [39mexport async function release(network, index = network.requests.length…
+    [90m 24| [39m  network[33m.[39mrequests[index][33m.[39m[34mrelease[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m 25| [39m  [35mawait[39m [34msettle[39m()[33m;[39m
+    [90m 26| [39m}
+[90m [2m❯[22m src/test/ExamList.test.jsx:[2m51:11[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/ExamList.test.jsx[2m > [22mExamList · borrar y crear[2m > [22mEliminar quita la fila sin recargar la página
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'release')[39m
+[36m [2m❯[22m release src/test/helpers.js:[2m24:27[22m[39m
+    [90m 22| [39m/** Releases the request number `index` (or the last one) and waits fo…
+    [90m 23| [39mexport async function release(network, index = network.requests.length…
+    [90m 24| [39m  network[33m.[39mrequests[index][33m.[39m[34mrelease[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m 25| [39m  [35mawait[39m [34msettle[39m()[33m;[39m
+    [90m 26| [39m}
+[90m [2m❯[22m renderReady src/test/ExamList.test.jsx:[2m13:9[22m[39m
+[90m [2m❯[22m src/test/ExamList.test.jsx:[2m63:11[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[24/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/ExamList.test.jsx[2m > [22mExamList · borrar y crear[2m > [22msi Eliminar falla: la fila sigue y una alerta explica el error
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'release')[39m
+[36m [2m❯[22m release src/test/helpers.js:[2m24:27[22m[39m
+    [90m 22| [39m/** Releases the request number `index` (or the last one) and waits fo…
+    [90m 23| [39mexport async function release(network, index = network.requests.length…
+    [90m 24| [39m  network[33m.[39mrequests[index][33m.[39m[34mrelease[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m 25| [39m  [35mawait[39m [34msettle[39m()[33m;[39m
+    [90m 26| [39m}
+[90m [2m❯[22m renderReady src/test/ExamList.test.jsx:[2m13:9[22m[39m
+[90m [2m❯[22m src/test/ExamList.test.jsx:[2m71:11[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[25/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/ExamList.test.jsx[2m > [22mExamList · borrar y crear[2m > [22mAgregar crea el cuestionario, lo muestra y vacía el campo
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'release')[39m
+[36m [2m❯[22m release src/test/helpers.js:[2m24:27[22m[39m
+    [90m 22| [39m/** Releases the request number `index` (or the last one) and waits fo…
+    [90m 23| [39mexport async function release(network, index = network.requests.length…
+    [90m 24| [39m  network[33m.[39mrequests[index][33m.[39m[34mrelease[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m 25| [39m  [35mawait[39m [34msettle[39m()[33m;[39m
+    [90m 26| [39m}
+[90m [2m❯[22m renderReady src/test/ExamList.test.jsx:[2m13:9[22m[39m
+[90m [2m❯[22m src/test/ExamList.test.jsx:[2m80:11[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[26/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/ExamList.test.jsx[2m > [22mExamList · borrar y crear[2m > [22mun doble clic en Agregar envía un solo POST y el botón se desactiva mientras espera
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'release')[39m
+[36m [2m❯[22m release src/test/helpers.js:[2m24:27[22m[39m
+    [90m 22| [39m/** Releases the request number `index` (or the last one) and waits fo…
+    [90m 23| [39mexport async function release(network, index = network.requests.length…
+    [90m 24| [39m  network[33m.[39mrequests[index][33m.[39m[34mrelease[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m 25| [39m  [35mawait[39m [34msettle[39m()[33m;[39m
+    [90m 26| [39m}
+[90m [2m❯[22m renderReady src/test/ExamList.test.jsx:[2m13:9[22m[39m
+[90m [2m❯[22m src/test/ExamList.test.jsx:[2m89:11[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[27/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/ExamList.test.jsx[2m > [22mExamList · borrar y crear[2m > [22mcon el título vacío se muestra el mensaje de la API, no una pantalla muda
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'release')[39m
+[36m [2m❯[22m release src/test/helpers.js:[2m24:27[22m[39m
+    [90m 22| [39m/** Releases the request number `index` (or the last one) and waits fo…
+    [90m 23| [39mexport async function release(network, index = network.requests.length…
+    [90m 24| [39m  network[33m.[39mrequests[index][33m.[39m[34mrelease[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m 25| [39m  [35mawait[39m [34msettle[39m()[33m;[39m
+    [90m 26| [39m}
+[90m [2m❯[22m renderReady src/test/ExamList.test.jsx:[2m13:9[22m[39m
+[90m [2m❯[22m src/test/ExamList.test.jsx:[2m101:11[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[28/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/useExams.test.jsx[2m > [22museExams · los tres estados de la petición[2m > [22mempieza en loading, sin datos ni error, y pide GET /exams/ una vez
+[31m[1mAssertionError[22m: expected [] to have a length of 1 but got +0[39m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- 1[39m
+[31m+ 0[39m
+
+[36m [2m❯[22m src/test/useExams.test.jsx:[2m23:30[22m[39m
+    [90m 21| [39m    [35mconst[39m { result } [33m=[39m [34mrenderHook[39m(() [33m=>[39m [34museExams[39m())[33m;[39m
+    [90m 22| [39m    expect(result.current).toMatchObject({ status: "loading", exams: […
+    [90m 23| [39m    [34mexpect[39m(network[33m.[39mrequests)[33m.[39m[34mtoHaveLength[39m([34m1[39m)[33m;[39m
+    [90m   | [39m                             [31m^[39m
+    [90m 24| [39m    [34mexpect[39m(network[33m.[39mrequests[[34m0[39m])[33m.[39m[34mtoMatchObject[39m({ method[33m:[39m [32m"GET"[39m })[33m;[39m
+    [90m 25| [39m  })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[29/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/useExams.test.jsx[2m > [22museExams · los tres estados de la petición[2m > [22mcuando llegan los datos pasa a ready con los cuestionarios
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'release')[39m
+[36m [2m❯[22m release src/test/helpers.js:[2m24:27[22m[39m
+    [90m 22| [39m/** Releases the request number `index` (or the last one) and waits fo…
+    [90m 23| [39mexport async function release(network, index = network.requests.length…
+    [90m 24| [39m  network[33m.[39mrequests[index][33m.[39m[34mrelease[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m 25| [39m  [35mawait[39m [34msettle[39m()[33m;[39m
+    [90m 26| [39m}
+[90m [2m❯[22m mountReady src/test/useExams.test.jsx:[2m14:9[22m[39m
+[90m [2m❯[22m src/test/useExams.test.jsx:[2m28:30[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[30/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/useExams.test.jsx[2m > [22museExams · los tres estados de la petición[2m > [22msi la API responde 500 pasa a error, con una frase que dice el estado, y sin datos
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'release')[39m
+[36m [2m❯[22m release src/test/helpers.js:[2m24:27[22m[39m
+    [90m 22| [39m/** Releases the request number `index` (or the last one) and waits fo…
+    [90m 23| [39mexport async function release(network, index = network.requests.length…
+    [90m 24| [39m  network[33m.[39mrequests[index][33m.[39m[34mrelease[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m 25| [39m  [35mawait[39m [34msettle[39m()[33m;[39m
+    [90m 26| [39m}
+[90m [2m❯[22m src/test/useExams.test.jsx:[2m37:11[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[31/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/useExams.test.jsx[2m > [22museExams · los tres estados de la petición[2m > [22msi el servidor está apagado (o CORS bloquea) pasa a error y lo explica
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'release')[39m
+[36m [2m❯[22m release src/test/helpers.js:[2m24:27[22m[39m
+    [90m 22| [39m/** Releases the request number `index` (or the last one) and waits fo…
+    [90m 23| [39mexport async function release(network, index = network.requests.length…
+    [90m 24| [39m  network[33m.[39mrequests[index][33m.[39m[34mrelease[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m 25| [39m  [35mawait[39m [34msettle[39m()[33m;[39m
+    [90m 26| [39m}
+[90m [2m❯[22m src/test/useExams.test.jsx:[2m46:11[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[32/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/useExams.test.jsx[2m > [22museExams · los tres estados de la petición[2m > [22mreload vuelve a loading, pide otra vez y muestra lo nuevo
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'release')[39m
+[36m [2m❯[22m release src/test/helpers.js:[2m24:27[22m[39m
+    [90m 22| [39m/** Releases the request number `index` (or the last one) and waits fo…
+    [90m 23| [39mexport async function release(network, index = network.requests.length…
+    [90m 24| [39m  network[33m.[39mrequests[index][33m.[39m[34mrelease[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m 25| [39m  [35mawait[39m [34msettle[39m()[33m;[39m
+    [90m 26| [39m}
+[90m [2m❯[22m mountReady src/test/useExams.test.jsx:[2m14:9[22m[39m
+[90m [2m❯[22m src/test/useExams.test.jsx:[2m52:30[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[33/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/useExams.test.jsx[2m > [22museExams · los tres estados de la petición[2m > [22mreload después de un error: error, loading y ready
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'release')[39m
+[36m [2m❯[22m release src/test/helpers.js:[2m24:27[22m[39m
+    [90m 22| [39m/** Releases the request number `index` (or the last one) and waits fo…
+    [90m 23| [39mexport async function release(network, index = network.requests.length…
+    [90m 24| [39m  network[33m.[39mrequests[index][33m.[39m[34mrelease[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m 25| [39m  [35mawait[39m [34msettle[39m()[33m;[39m
+    [90m 26| [39m}
+[90m [2m❯[22m src/test/useExams.test.jsx:[2m65:11[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[34/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/useExams.test.jsx[2m > [22museExams · limpieza y carrera de peticiones[2m > [22mal desmontar aborta la petición en vuelo
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'aborted')[39m
+[36m [2m❯[22m src/test/useExams.test.jsx:[2m79:32[22m[39m
+    [90m 77| [39m  [34mit[39m([32m"al desmontar aborta la petición en vuelo"[39m[33m,[39m () [33m=>[39m {
+    [90m 78| [39m    [35mconst[39m { unmount } [33m=[39m [34mrenderHook[39m(() [33m=>[39m [34museExams[39m())[33m;[39m
+    [90m 79| [39m    [34mexpect[39m(network[33m.[39mrequests[[34m0[39m][33m.[39maborted)[33m.[39m[34mtoBe[39m([35mfalse[39m)[33m;[39m
+    [90m   | [39m                               [31m^[39m
+    [90m 80| [39m    [34munmount[39m()[33m;[39m
+    [90m 81| [39m    [34mexpect[39m(network[33m.[39mrequests[[34m0[39m][33m.[39maborted)[33m.[39m[34mtoBe[39m([35mtrue[39m)[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[35/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/useExams.test.jsx[2m > [22museExams · limpieza y carrera de peticiones[2m > [22mal pedir otra vez (reload) aborta la petición anterior
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'aborted')[39m
+[36m [2m❯[22m src/test/useExams.test.jsx:[2m87:32[22m[39m
+    [90m 85| [39m    [35mconst[39m { result } [33m=[39m [34mrenderHook[39m(() [33m=>[39m [34museExams[39m())[33m;[39m
+    [90m 86| [39m    [34mact[39m(() [33m=>[39m result[33m.[39mcurrent[33m.[39m[34mreload[39m())[33m;[39m
+    [90m 87| [39m    [34mexpect[39m(network[33m.[39mrequests[[34m0[39m][33m.[39maborted)[33m.[39m[34mtoBe[39m([35mtrue[39m)[33m;[39m
+    [90m   | [39m                               [31m^[39m
+    [90m 88| [39m    [34mexpect[39m(network[33m.[39mrequests[[34m1[39m][33m.[39maborted)[33m.[39m[34mtoBe[39m([35mfalse[39m)[33m;[39m
+    [90m 89| [39m  })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[36/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/useExams.test.jsx[2m > [22museExams · limpieza y carrera de peticiones[2m > [22msi la primera respuesta llega DESPUÉS de la segunda, no pisa a la nueva
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'release')[39m
+[36m [2m❯[22m release src/test/helpers.js:[2m24:27[22m[39m
+    [90m 22| [39m/** Releases the request number `index` (or the last one) and waits fo…
+    [90m 23| [39mexport async function release(network, index = network.requests.length…
+    [90m 24| [39m  network[33m.[39mrequests[index][33m.[39m[34mrelease[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m 25| [39m  [35mawait[39m [34msettle[39m()[33m;[39m
+    [90m 26| [39m}
+[90m [2m❯[22m src/test/useExams.test.jsx:[2m96:11[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[37/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/useExams.test.jsx[2m > [22museExams · limpieza y carrera de peticiones[2m > [22msi la respuesta llega después de desmontar, no pasa nada (ni avisos en la consola)
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'release')[39m
+[36m [2m❯[22m release src/test/helpers.js:[2m24:27[22m[39m
+    [90m 22| [39m/** Releases the request number `index` (or the last one) and waits fo…
+    [90m 23| [39mexport async function release(network, index = network.requests.length…
+    [90m 24| [39m  network[33m.[39mrequests[index][33m.[39m[34mrelease[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m 25| [39m  [35mawait[39m [34msettle[39m()[33m;[39m
+    [90m 26| [39m}
+[90m [2m❯[22m src/test/useExams.test.jsx:[2m108:11[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[38/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/useExams.test.jsx[2m > [22museExams · limpieza y carrera de peticiones[2m > [22mcon StrictMode (el efecto corre dos veces) solo queda viva una petición y la pantalla acaba bien
+[31m[1mAssertionError[22m: expected 0 to be greater than or equal to 2[39m
+[36m [2m❯[22m src/test/useExams.test.jsx:[2m115:37[22m[39m
+    [90m113| [39m  it("con StrictMode (el efecto corre dos veces) solo queda viva una p…
+    [90m114| [39m    const { result } = renderHook(() => useExams(), { wrapper: StrictM…
+    [90m115| [39m    [34mexpect[39m(network[33m.[39mrequests[33m.[39mlength)[33m.[39m[34mtoBeGreaterThanOrEqual[39m([34m2[39m)[33m;[39m
+    [90m   | [39m                                    [31m^[39m
+    [90m116| [39m    expect(network.requests.filter((request) => !request.aborted)).toH…
+    [90m117| [39m    [35mawait[39m [34mreleaseAll[39m(network)[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[39/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/useExams.test.jsx[2m > [22museExams · borrar[2m > [22mremove(id) hace DELETE y el cuestionario desaparece de la lista sin recargar
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'release')[39m
+[36m [2m❯[22m release src/test/helpers.js:[2m24:27[22m[39m
+    [90m 22| [39m/** Releases the request number `index` (or the last one) and waits fo…
+    [90m 23| [39mexport async function release(network, index = network.requests.length…
+    [90m 24| [39m  network[33m.[39mrequests[index][33m.[39m[34mrelease[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m 25| [39m  [35mawait[39m [34msettle[39m()[33m;[39m
+    [90m 26| [39m}
+[90m [2m❯[22m mountReady src/test/useExams.test.jsx:[2m14:9[22m[39m
+[90m [2m❯[22m src/test/useExams.test.jsx:[2m125:30[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[40/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/useExams.test.jsx[2m > [22museExams · borrar[2m > [22msi la API falla (500), la fila se queda, se explica el error y remove devuelve false
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'release')[39m
+[36m [2m❯[22m release src/test/helpers.js:[2m24:27[22m[39m
+    [90m 22| [39m/** Releases the request number `index` (or the last one) and waits fo…
+    [90m 23| [39mexport async function release(network, index = network.requests.length…
+    [90m 24| [39m  network[33m.[39mrequests[index][33m.[39m[34mrelease[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m 25| [39m  [35mawait[39m [34msettle[39m()[33m;[39m
+    [90m 26| [39m}
+[90m [2m❯[22m mountReady src/test/useExams.test.jsx:[2m14:9[22m[39m
+[90m [2m❯[22m src/test/useExams.test.jsx:[2m138:30[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[41/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/useExams.test.jsx[2m > [22museExams · crear[2m > [22mcreate(title) hace POST y añade el cuestionario creado al final
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'release')[39m
+[36m [2m❯[22m release src/test/helpers.js:[2m24:27[22m[39m
+    [90m 22| [39m/** Releases the request number `index` (or the last one) and waits fo…
+    [90m 23| [39mexport async function release(network, index = network.requests.length…
+    [90m 24| [39m  network[33m.[39mrequests[index][33m.[39m[34mrelease[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m 25| [39m  [35mawait[39m [34msettle[39m()[33m;[39m
+    [90m 26| [39m}
+[90m [2m❯[22m mountReady src/test/useExams.test.jsx:[2m14:9[22m[39m
+[90m [2m❯[22m src/test/useExams.test.jsx:[2m154:30[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[42/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/useExams.test.jsx[2m > [22museExams · crear[2m > [22mmientras el POST está en vuelo saving es true, y vuelve a false al terminar
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'release')[39m
+[36m [2m❯[22m release src/test/helpers.js:[2m24:27[22m[39m
+    [90m 22| [39m/** Releases the request number `index` (or the last one) and waits fo…
+    [90m 23| [39mexport async function release(network, index = network.requests.length…
+    [90m 24| [39m  network[33m.[39mrequests[index][33m.[39m[34mrelease[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m 25| [39m  [35mawait[39m [34msettle[39m()[33m;[39m
+    [90m 26| [39m}
+[90m [2m❯[22m mountReady src/test/useExams.test.jsx:[2m14:9[22m[39m
+[90m [2m❯[22m src/test/useExams.test.jsx:[2m166:30[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[43/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/useExams.test.jsx[2m > [22museExams · crear[2m > [22mdos create seguidos, con el primero en vuelo, envían un solo POST
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'release')[39m
+[36m [2m❯[22m release src/test/helpers.js:[2m24:27[22m[39m
+    [90m 22| [39m/** Releases the request number `index` (or the last one) and waits fo…
+    [90m 23| [39mexport async function release(network, index = network.requests.length…
+    [90m 24| [39m  network[33m.[39mrequests[index][33m.[39m[34mrelease[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m 25| [39m  [35mawait[39m [34msettle[39m()[33m;[39m
+    [90m 26| [39m}
+[90m [2m❯[22m mountReady src/test/useExams.test.jsx:[2m14:9[22m[39m
+[90m [2m❯[22m src/test/useExams.test.jsx:[2m177:30[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[44/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/useExams.test.jsx[2m > [22museExams · crear[2m > [22mun título vacío: la API responde 400, se muestra su mensaje y la lista no cambia
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'release')[39m
+[36m [2m❯[22m release src/test/helpers.js:[2m24:27[22m[39m
+    [90m 22| [39m/** Releases the request number `index` (or the last one) and waits fo…
+    [90m 23| [39mexport async function release(network, index = network.requests.length…
+    [90m 24| [39m  network[33m.[39mrequests[index][33m.[39m[34mrelease[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m 25| [39m  [35mawait[39m [34msettle[39m()[33m;[39m
+    [90m 26| [39m}
+[90m [2m❯[22m mountReady src/test/useExams.test.jsx:[2m14:9[22m[39m
+[90m [2m❯[22m src/test/useExams.test.jsx:[2m190:30[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[45/46]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/test/useExams.test.jsx[2m > [22museExams · crear[2m > [22mdespués de un error se puede volver a crear (saving no se queda atascado)
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'release')[39m
+[36m [2m❯[22m release src/test/helpers.js:[2m24:27[22m[39m
+    [90m 22| [39m/** Releases the request number `index` (or the last one) and waits fo…
+    [90m 23| [39mexport async function release(network, index = network.requests.length…
+    [90m 24| [39m  network[33m.[39mrequests[index][33m.[39m[34mrelease[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m 25| [39m  [35mawait[39m [34msettle[39m()[33m;[39m
+    [90m 26| [39m}
+[90m [2m❯[22m mountReady src/test/useExams.test.jsx:[2m14:9[22m[39m
+[90m [2m❯[22m src/test/useExams.test.jsx:[2m202:30[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[46/46]⎯[22m[39m
+

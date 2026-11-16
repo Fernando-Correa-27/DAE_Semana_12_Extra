@@ -1,0 +1,5 @@
+$ npm test -- cors
+
+ Test Files  1 passed (1)
+      Tests  8 passed (8)
+   Duration  1.73s (transform 47ms, setup 243ms, collect 198ms, tests 33ms, environment 723ms, prepare 253ms)

@@ -1,0 +1,20 @@
+$ npm run test:ai - tras cancelar e ignorar respuestas viejas
+
+Test Files  2 failed | 4 passed (6)
+     Tests  6 failed | 61 passed (67)
+
+Por archivo:
+  api.test.js              14 pruebas,  0 fallidas
+  App.test.jsx              3 pruebas,  0 fallidas
+  cli.test.js              14 pruebas,  0 fallidas
+  cors.test.js              8 pruebas,  0 fallidas
+  ExamList.test.jsx        10 pruebas,  2 fallidas
+  useExams.test.jsx        18 pruebas,  4 fallidas
+
+Pruebas que fallan:
+  [ExamList.test.jsx] ExamList · borrar y crear Eliminar quita la fila sin recargar la página
+  [ExamList.test.jsx] ExamList · borrar y crear un doble clic en Agregar envía un solo POST y el botón se desactiva mientras espera
+  [useExams.test.jsx] useExams · borrar remove(id) hace DELETE y el cuestionario desaparece de la lista sin recargar
+  [useExams.test.jsx] useExams · crear mientras el POST está en vuelo saving es true, y vuelve a false al terminar
+  [useExams.test.jsx] useExams · crear dos create seguidos, con el primero en vuelo, envían un solo POST
+  [useExams.test.jsx] useExams · crear después de un error se puede volver a crear (saving no se queda atascado)
