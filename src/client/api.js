@@ -17,7 +17,12 @@ export const api = axios.create({
 
 /** TODO 3: GET /exams/ -> the array of exams (response.data, not the whole response). Pass the `signal` to Axios. */
 export function listExams({ signal } = {}) {
-  return api.get("/exams/", { signal }).then((response) => response.data);
+  const request = api.get("/exams/", { signal }).then((response) => response.data);
+  // An aborted request can reject before the caller attaches its handler (the cancellation test aborts first and
+  // asserts later). Observe that rejection here so Node does not report it as unhandled; the returned promise still
+  // rejects for the caller, which is the hook's catch.
+  request.catch(() => {});
+  return request;
 }
 
 /** TODO 4: POST /exams/ with { title } -> the exam the server created (response.data). */

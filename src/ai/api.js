@@ -9,7 +9,10 @@ export const api = axios.create({
 });
 
 export function listExams({ signal } = {}) {
-  return api.get("/exams/", { signal }).then((response) => response.data);
+  const request = api.get("/exams/", { signal }).then((response) => response.data);
+  // Observe an early cancellation rejection; callers still receive the rejected promise.
+  request.catch(() => {});
+  return request;
 }
 
 export function createExam(title) {
