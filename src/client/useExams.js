@@ -29,21 +29,32 @@ export default function useExams() {
   const [saving, setSaving] = useState(false);
   const [attempt, setAttempt] = useState(0);
 
-  // TODO 1: list the exams and move between the three states.
+  // TODO 1: list the exams and move between the three states. The cleanup aborts the request and marks the answer as
+  // obsolete, so a slow response can never overwrite a newer one.
   useEffect(() => {
+    const controller = new AbortController();
+    let cancelled = false;
+
     setStatus("loading");
     setError(null);
 
-    listExams()
+    listExams({ signal: controller.signal })
       .then((data) => {
+        if (cancelled) return;
         setExams(data);
         setStatus("ready");
       })
       .catch((err) => {
+        if (cancelled || err?.code === "ERR_CANCELED") return;
         setExams([]);
         setError(describeError(err));
         setStatus("error");
       });
+
+    return () => {
+      cancelled = true;
+      controller.abort();
+    };
   }, [attempt]);
 
   // TODO 2: ask for the list again; the counter is the effect's dependency.
