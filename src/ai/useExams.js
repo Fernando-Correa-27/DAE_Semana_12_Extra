@@ -9,17 +9,29 @@ export default function useExams() {
   const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
+    const controller = new AbortController();
+    let cancelled = false;
+
     setStatus("loading");
-    listExams()
+    setError(null);
+
+    listExams({ signal: controller.signal })
       .then((data) => {
+        if (cancelled) return;
         setExams(data);
         setStatus("ready");
       })
       .catch((err) => {
+        if (cancelled || err?.code === "ERR_CANCELED") return;
         setExams([]);
         setError(describeError(err));
         setStatus("error");
       });
+
+    return () => {
+      cancelled = true;
+      controller.abort();
+    };
   }, [attempt]);
 
   const reload = useCallback(() => setAttempt((n) => n + 1), []);
@@ -27,6 +39,7 @@ export default function useExams() {
   const remove = useCallback(async (id) => {
     try {
       await deleteExam(id);
+      setExams((current) => current.filter((exam) => exam.id !== id));
       return true;
     } catch (err) {
       setActionError(describeError(err));
