@@ -16,9 +16,9 @@ export default function useExams() {
         setStatus("ready");
       })
       .catch((err) => {
-        console.error("Error loading exams", err);
         setExams([]);
-        setStatus("ready");
+        setError(describeError(err));
+        setStatus("error");
       });
   }, [attempt]);
 
@@ -27,8 +27,10 @@ export default function useExams() {
   const remove = useCallback(async (id) => {
     try {
       await deleteExam(id);
+      return true;
     } catch (err) {
-      console.error("Error deleting exam", err);
+      setActionError(describeError(err));
+      return false;
     }
   }, []);
 
@@ -38,7 +40,7 @@ export default function useExams() {
       setExams((current) => [...current, exam]);
       return true;
     } catch (err) {
-      console.error("Error creating exam", err);
+      setActionError(describeError(err));
       return false;
     }
   }, []);
